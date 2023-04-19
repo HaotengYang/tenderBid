@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.test2.mapper.EnterpriseInfoMapper">
+    <select id="selectEnterpriseInfoList"
+            resultType="com.example.test2.model.EnterpriseInfoResult">
+        SELECT e.ENTERPRISE_NAME                                                                  AS enterpriseName,
+               COUNT(DISTINCT h.id)                                                               AS handleCount,
+               COUNT(DISTINCT r.TASK_ID)                                                          AS taskCount,
+               COUNT(r.id)                                                                        AS followCount,
+               MAX(CASE WHEN r.UPDATE_TIME IS NOT NULL THEN r.UPDATE_TIME ELSE r.CREATE_TIME END) AS lastFollowTime
+        FROM enterprise_info e
+                 LEFT JOIN enterprise_handle_info h ON e.ENTERPRISE_ID = h.ENTERPRISE_ID
+                 LEFT JOIN enterprise_follow_record r ON h.id = r.HANDLE_ID
+        GROUP BY e.ENTERPRISE_ID,
+                 e.ENTERPRISE_NAME
+        LIMIT #{pageSize} OFFSET #{start}
+    </select>
+</mapper>
+
+<!-- namespace改成Mapper名字。id改成query方法，resultType改成实体类。SELECT表名。 -->
+<!--多表关联-映射-4个注解-->
+

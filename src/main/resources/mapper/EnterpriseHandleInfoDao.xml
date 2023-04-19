@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.test2.mapper.EnterpriseHandleInfoDao">
+
+    <resultMap type="com.example.test2.entity.EnterpriseHandleInfo" id="EnterpriseHandleInfoMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="enterpriseId" column="ENTERPRISE_ID" jdbcType="INTEGER"/>
+        <result property="userId" column="USER_ID" jdbcType="INTEGER"/>
+        <result property="handleName" column="HANDLE_NAME" jdbcType="VARCHAR"/>
+        <result property="mobile" column="MOBILE" jdbcType="VARCHAR"/>
+        <result property="responsibleRegion" column="RESPONSIBLE_REGION" jdbcType="VARCHAR"/>
+        <result property="identity" column="IDENTITY" jdbcType="VARCHAR"/>
+        <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="createPerson" column="CREATE_PERSON" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="updatePerson" column="UPDATE_PERSON" jdbcType="VARCHAR"/>
+        <result property="mobileTime" column="MOBILE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="dataSource" column="DATA_SOURCE" jdbcType="VARCHAR"/>
+        <result property="isShow" column="IS_SHOW" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into 51wbl.enterprise_handle_info(ENTERPRISE_ID, USER_ID, HANDLE_NAME, MOBILE, RESPONSIBLE_REGION,
+        IDENTITY, CREATE_TIME, CREATE_PERSON, UPDATE_TIME, UPDATE_PERSON, MOBILE_TIME, DATA_SOURCE, IS_SHOW)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.enterpriseId}, #{entity.userId}, #{entity.handleName}, #{entity.mobile},
+            #{entity.responsibleRegion}, #{entity.identity}, #{entity.createTime}, #{entity.createPerson},
+            #{entity.updateTime}, #{entity.updatePerson}, #{entity.mobileTime}, #{entity.dataSource}, #{entity.isShow})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into 51wbl.enterprise_handle_info(ENTERPRISE_ID, USER_ID, HANDLE_NAME, MOBILE, RESPONSIBLE_REGION,
+        IDENTITY, CREATE_TIME, CREATE_PERSON, UPDATE_TIME, UPDATE_PERSON, MOBILE_TIME, DATA_SOURCE, IS_SHOW)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.enterpriseId}, #{entity.userId}, #{entity.handleName}, #{entity.mobile},
+            #{entity.responsibleRegion}, #{entity.identity}, #{entity.createTime}, #{entity.createPerson},
+            #{entity.updateTime}, #{entity.updatePerson}, #{entity.mobileTime}, #{entity.dataSource}, #{entity.isShow})
+        </foreach>
+        on duplicate key update
+        ENTERPRISE_ID = values(ENTERPRISE_ID) , USER_ID = values(USER_ID) , HANDLE_NAME = values(HANDLE_NAME) , MOBILE =
+        values(MOBILE) , RESPONSIBLE_REGION = values(RESPONSIBLE_REGION) , IDENTITY = values(IDENTITY) , CREATE_TIME =
+        values(CREATE_TIME) , CREATE_PERSON = values(CREATE_PERSON) , UPDATE_TIME = values(UPDATE_TIME) , UPDATE_PERSON
+        = values(UPDATE_PERSON) , MOBILE_TIME = values(MOBILE_TIME) , DATA_SOURCE = values(DATA_SOURCE) , IS_SHOW =
+        values(IS_SHOW)
+    </insert>
+
+</mapper>
+

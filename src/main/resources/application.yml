@@ -1,0 +1,144 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.38:13308/51wbl?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: 51wbl
+    password: 7Fp*lY|pnxCD
+
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.test2.entity
+
+#server:
+#  port: 6021
+#spring:
+#  autoconfigure:
+#    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+#  datasource:
+#    dynamic:
+#      primary: 51wbl
+#      strict: false
+#      datasource:
+#        51wbl:
+#          driver-class-name: com.mysql.jdbc.Driver
+#          url: jdbc:mysql://192.168.0.38:13308/51wbl?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useSSL=false&serverTimezone=Asia/Shanghai
+#          username: 51wbl
+#          password: 7Fp*lY|pnxCD
+#        guarantee:
+#          driver-class-name: com.mysql.jdbc.Driver
+#          url: jdbc:mysql://192.168.0.38:13307/guarantee?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useSSL=false
+#          username: guarantee
+#          password: Fe4t5tVr5
+#        project_lib:
+#          driver-class-name: com.mysql.jdbc.Driver
+#          url: jdbc:mysql://192.168.0.38:13308/project?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+#          username: project
+#          password: t2}Xhe3Ce2W,
+#    druid:
+#      stat-view-servlet:
+#        enabled: true
+#        allow:
+#        url-pattern: /druid/*
+#        login-username: admin
+#        login-password: admin
+#        initial-size: 5
+#        max-active: 30
+#        min-idle: 5
+#        max-wait: 60000
+#        time-between-eviction-runs-millis: 60000
+#        min-evictable-idle-time-millis: 300000
+#        validation-query: select count(*) from dual
+#        test-while-idle: true
+#        test-on-borrow: false
+#        test-on-return: false
+#        pool-prepared-statements: false
+#        max-pool-prepared-statement-per-connection-size: 50
+#        filters: stat,wall
+#        connection-properties:
+#          druid.stat.mergeSql: true
+#          druid.stat.slowSqlMillis: 500
+#        use-global-data-source-stat: true
+#        filter:
+#          stat:
+#            log-slow-sql: true
+#            slow-sql-millis: 1000
+#            merge-sql: true
+#          wall:
+#            config:
+#              multi-statement-allow: true
+#  elasticsearch:
+#    index:
+#      name: project_common
+#    rest:
+#      uris: 192.168.0.38:9200
+#    username: elastic
+#    password: 4*VL,]dr"[,%
+#  redis:
+#    database: 10
+#    host: 192.168.0.8
+#    port: 6380
+#    password:
+#    lettuce:
+#      pool:
+#        # 连接池中的最大空闲连接 默认8
+#        max-idle: 10
+#        # 连接池中的最小空闲连接 默认0
+#        min-idle: 0
+#        # 连接池最大连接数 默认8 ，负数表示没有限制
+#        max-active: 10
+#        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认-1
+#        max-wait: -1
+#    timeout: 30000
+#  cloud:
+#    sentinel:
+#      transport:
+#        port: 8719
+#        dashboard: 192.168.0.16:18080   #sentinel控制台的请求地址
+#      datasource:
+#        #流控规则 名称随意
+#        flow:
+#          nacos:
+#            server-addr: 192.168.0.16:8848
+#            dataId: ${spring.application.name}-flow-rules
+#            groupId: GROUP
+#            ruleType: flow
+#            namespace: e9c0008b-59bc-4392-9507-5dc224f3a94b
+#        # 熔断降级
+#        degrade:
+#          nacos:
+#            server-addr: 192.168.0.16:8848
+#            dataId: ${spring.application.name}-degrade-rules
+#            groupId: GROUP
+#            ruleType: degrade
+#            namespace: e9c0008b-59bc-4392-9507-5dc224f3a94b
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#feign:
+#  sentinel:
+#    enabled: true
+#
+#mybatis-plus:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    auto-mapping-behavior: full
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  mapper-locations: classpath*:mapper/**/*Mapper.xml
+#logging:
+#  level:
+#    root: info
+#    com.alibaba.nacos: info
+#
+#consult:
+#  blackUserDisablePermissions: /qaTopic/saveQaTopic,/qaTopic/saveQaTopicAnswer,/qaTopic/saveUserAttention,/news/saveTelephoneInvite,/message/saveLeaveMessage
+#  removedTradeCenter:
+#  userInvitationLink: http://..
+#  fileDownloadRoute: http://wx.toubiaole.com/file
+#  shareShortUrl: http://wx.toubiaole.com/consultapi/k/
+#  projectDetailUrl: http://51website.toubiaole.com/bidproject/tender/

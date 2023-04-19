@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.test2.mapper.EnterpriseFollowTaskLinkDao">
+
+    <resultMap type="com.example.test2.entity.EnterpriseFollowTaskLink" id="EnterpriseFollowTaskLinkMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="taskId" column="TASK_ID" jdbcType="INTEGER"/>
+        <result property="enterpriseId" column="ENTERPRISE_ID" jdbcType="INTEGER"/>
+        <result property="userId" column="USER_ID" jdbcType="INTEGER"/>
+        <result property="customerName" column="CUSTOMER_NAME" jdbcType="VARCHAR"/>
+        <result property="remark" column="REMARK" jdbcType="VARCHAR"/>
+        <result property="isMarket" column="IS_MARKET" jdbcType="VARCHAR"/>
+        <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="createPerson" column="CREATE_PERSON" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into 51wbl.enterprise_follow_task_link(TASK_ID, ENTERPRISE_ID, USER_ID, CUSTOMER_NAME, REMARK, IS_MARKET,
+        CREATE_TIME, CREATE_PERSON)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.taskId}, #{entity.enterpriseId}, #{entity.userId}, #{entity.customerName}, #{entity.remark},
+            #{entity.isMarket}, #{entity.createTime}, #{entity.createPerson})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into 51wbl.enterprise_follow_task_link(TASK_ID, ENTERPRISE_ID, USER_ID, CUSTOMER_NAME, REMARK, IS_MARKET,
+        CREATE_TIME, CREATE_PERSON)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.taskId}, #{entity.enterpriseId}, #{entity.userId}, #{entity.customerName}, #{entity.remark},
+            #{entity.isMarket}, #{entity.createTime}, #{entity.createPerson})
+        </foreach>
+        on duplicate key update
+        TASK_ID = values(TASK_ID) , ENTERPRISE_ID = values(ENTERPRISE_ID) , USER_ID = values(USER_ID) , CUSTOMER_NAME =
+        values(CUSTOMER_NAME) , REMARK = values(REMARK) , IS_MARKET = values(IS_MARKET) , CREATE_TIME =
+        values(CREATE_TIME) , CREATE_PERSON = values(CREATE_PERSON)
+    </insert>
+
+</mapper>
+

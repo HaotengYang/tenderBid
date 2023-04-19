@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.test2.mapper.EnterpriseFollowRecordDao">
+
+    <resultMap type="com.example.test2.entity.EnterpriseFollowRecord" id="EnterpriseFollowRecordMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="userId" column="USER_ID" jdbcType="INTEGER"/>
+        <result property="handleId" column="HANDLE_ID" jdbcType="INTEGER"/>
+        <result property="taskId" column="TASK_ID" jdbcType="INTEGER"/>
+        <result property="enterpriseId" column="ENTERPRISE_ID" jdbcType="INTEGER"/>
+        <result property="serviceType" column="SERVICE_TYPE" jdbcType="VARCHAR"/>
+        <result property="phoneSituation" column="PHONE_SITUATION" jdbcType="VARCHAR"/>
+        <result property="marketType" column="MARKET_TYPE" jdbcType="VARCHAR"/>
+        <result property="consultType" column="CONSULT_TYPE" jdbcType="VARCHAR"/>
+        <result property="guaranteeType" column="GUARANTEE_TYPE" jdbcType="VARCHAR"/>
+        <result property="userQua" column="USER_QUA" jdbcType="VARCHAR"/>
+        <result property="processResult" column="PROCESS_RESULT" jdbcType="VARCHAR"/>
+        <result property="isDeal" column="IS_DEAL" jdbcType="VARCHAR"/>
+        <result property="noticeType" column="NOTICE_TYPE" jdbcType="VARCHAR"/>
+        <result property="noticeWay" column="NOTICE_WAY" jdbcType="VARCHAR"/>
+        <result property="returnVisitType" column="RETURN_VISIT_TYPE" jdbcType="VARCHAR"/>
+        <result property="userReply" column="USER_REPLY" jdbcType="VARCHAR"/>
+        <result property="auditType" column="AUDIT_TYPE" jdbcType="VARCHAR"/>
+        <result property="projectName" column="PROJECT_NAME" jdbcType="VARCHAR"/>
+        <result property="pictureUrl" column="PICTURE_URL" jdbcType="VARCHAR"/>
+        <result property="orderCode" column="ORDER_CODE" jdbcType="VARCHAR"/>
+        <result property="communicateSituetion" column="COMMUNICATE_SITUETION" jdbcType="VARCHAR"/>
+        <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="createPerson" column="CREATE_PERSON" jdbcType="VARCHAR"/>
+        <result property="userFeedback" column="USER_FEEDBACK" jdbcType="VARCHAR"/>
+        <result property="noIntentionBuy" column="NO_INTENTION_BUY" jdbcType="VARCHAR"/>
+        <result property="isSecondFollow" column="IS_SECOND_FOLLOW" jdbcType="VARCHAR"/>
+        <result property="secondFollowTime" column="SECOND_FOLLOW_TIME" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="updatePerson" column="UPDATE_PERSON" jdbcType="VARCHAR"/>
+        <result property="followSource" column="FOLLOW_SOURCE" jdbcType="VARCHAR"/>
+        <result property="serviceObj" column="SERVICE_OBJ" jdbcType="VARCHAR"/>
+        <result property="responsibleRegion" column="RESPONSIBLE_REGION" jdbcType="VARCHAR"/>
+        <result property="isAddQq" column="IS_ADD_QQ" jdbcType="VARCHAR"/>
+        <result property="isAddWx" column="IS_ADD_WX" jdbcType="VARCHAR"/>
+        <result property="solution" column="SOLUTION" jdbcType="VARCHAR"/>
+        <result property="remark" column="REMARK" jdbcType="VARCHAR"/>
+        <result property="channelsPartners" column="CHANNELS_PARTNERS" jdbcType="VARCHAR"/>
+        <result property="touchMode" column="TOUCH_MODE" jdbcType="VARCHAR"/>
+        <result property="serviceTypeDescribe" column="SERVICE_TYPE_DESCRIBE" jdbcType="VARCHAR"/>
+        <result property="noIntentionBuyDescribe" column="NO_INTENTION_BUY_DESCRIBE" jdbcType="VARCHAR"/>
+        <result property="userFeedbackDescribe" column="USER_FEEDBACK_DESCRIBE" jdbcType="VARCHAR"/>
+        <result property="communicateMode" column="COMMUNICATE_MODE" jdbcType="VARCHAR"/>
+        <result property="deptType" column="DEPT_TYPE" jdbcType="VARCHAR"/>
+        <result property="deptId" column="DEPT_ID" jdbcType="INTEGER"/>
+        <result property="isCall" column="IS_CALL" jdbcType="VARCHAR"/>
+        <result property="isAddGroup" column="IS_ADD_GROUP" jdbcType="VARCHAR"/>
+        <result property="callType" column="CALL_TYPE" jdbcType="INTEGER"/>
+        <result property="rejectReason" column="REJECT_REASON" jdbcType="VARCHAR"/>
+        <result property="isWantAddWx" column="IS_WANT_ADD_WX" jdbcType="INTEGER"/>
+        <result property="competitionExtraction" column="COMPETITION_EXTRACTION" jdbcType="VARCHAR"/>
+        <result property="point" column="POINT" jdbcType="NUMERIC"/>
+        <result property="isLatest" column="IS_LATEST" jdbcType="VARCHAR"/>
+        <result property="productBusinessLine" column="PRODUCT_BUSINESS_LINE" jdbcType="VARCHAR"/>
+        <result property="questionClassify" column="QUESTION_CLASSIFY" jdbcType="VARCHAR"/>
+        <result property="contactNumber" column="CONTACT_NUMBER" jdbcType="VARCHAR"/>
+        <result property="wxNumber" column="WX_NUMBER" jdbcType="VARCHAR"/>
+        <result property="callResult" column="CALL_RESULT" jdbcType="VARCHAR"/>
+        <result property="responsibleRegionCity" column="RESPONSIBLE_REGION_CITY" jdbcType="VARCHAR"/>
+        <result property="isAddQv" column="IS_ADD_QV" jdbcType="VARCHAR"/>
+        <result property="consultResource" column="CONSULT_RESOURCE" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into 51wbl.enterprise_follow_record(USER_ID, HANDLE_ID, TASK_ID, ENTERPRISE_ID, SERVICE_TYPE,
+        PHONE_SITUATION, MARKET_TYPE, CONSULT_TYPE, GUARANTEE_TYPE, USER_QUA, PROCESS_RESULT, IS_DEAL, NOTICE_TYPE,
+        NOTICE_WAY, RETURN_VISIT_TYPE, USER_REPLY, AUDIT_TYPE, PROJECT_NAME, PICTURE_URL, ORDER_CODE,
+        COMMUNICATE_SITUETION, CREATE_TIME, CREATE_PERSON, USER_FEEDBACK, NO_INTENTION_BUY, IS_SECOND_FOLLOW,
+        SECOND_FOLLOW_TIME, UPDATE_TIME, UPDATE_PERSON, FOLLOW_SOURCE, SERVICE_OBJ, RESPONSIBLE_REGION, IS_ADD_QQ,
+        IS_ADD_WX, SOLUTION, REMARK, CHANNELS_PARTNERS, TOUCH_MODE, SERVICE_TYPE_DESCRIBE, NO_INTENTION_BUY_DESCRIBE,
+        USER_FEEDBACK_DESCRIBE, COMMUNICATE_MODE, DEPT_TYPE, DEPT_ID, IS_CALL, IS_ADD_GROUP, CALL_TYPE, REJECT_REASON,
+        IS_WANT_ADD_WX, COMPETITION_EXTRACTION, POINT, IS_LATEST, PRODUCT_BUSINESS_LINE, QUESTION_CLASSIFY,
+        CONTACT_NUMBER, WX_NUMBER, CALL_RESULT, RESPONSIBLE_REGION_CITY, IS_ADD_QV, CONSULT_RESOURCE)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userId}, #{entity.handleId}, #{entity.taskId}, #{entity.enterpriseId}, #{entity.serviceType},
+            #{entity.phoneSituation}, #{entity.marketType}, #{entity.consultType}, #{entity.guaranteeType},
+            #{entity.userQua}, #{entity.processResult}, #{entity.isDeal}, #{entity.noticeType}, #{entity.noticeWay},
+            #{entity.returnVisitType}, #{entity.userReply}, #{entity.auditType}, #{entity.projectName},
+            #{entity.pictureUrl}, #{entity.orderCode}, #{entity.communicateSituetion}, #{entity.createTime},
+            #{entity.createPerson}, #{entity.userFeedback}, #{entity.noIntentionBuy}, #{entity.isSecondFollow},
+            #{entity.secondFollowTime}, #{entity.updateTime}, #{entity.updatePerson}, #{entity.followSource},
+            #{entity.serviceObj}, #{entity.responsibleRegion}, #{entity.isAddQq}, #{entity.isAddWx}, #{entity.solution},
+            #{entity.remark}, #{entity.channelsPartners}, #{entity.touchMode}, #{entity.serviceTypeDescribe},
+            #{entity.noIntentionBuyDescribe}, #{entity.userFeedbackDescribe}, #{entity.communicateMode},
+            #{entity.deptType}, #{entity.deptId}, #{entity.isCall}, #{entity.isAddGroup}, #{entity.callType},
+            #{entity.rejectReason}, #{entity.isWantAddWx}, #{entity.competitionExtraction}, #{entity.point},
+            #{entity.isLatest}, #{entity.productBusinessLine}, #{entity.questionClassify}, #{entity.contactNumber},
+            #{entity.wxNumber}, #{entity.callResult}, #{entity.responsibleRegionCity}, #{entity.isAddQv},
+            #{entity.consultResource})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into 51wbl.enterprise_follow_record(USER_ID, HANDLE_ID, TASK_ID, ENTERPRISE_ID, SERVICE_TYPE,
+        PHONE_SITUATION, MARKET_TYPE, CONSULT_TYPE, GUARANTEE_TYPE, USER_QUA, PROCESS_RESULT, IS_DEAL, NOTICE_TYPE,
+        NOTICE_WAY, RETURN_VISIT_TYPE, USER_REPLY, AUDIT_TYPE, PROJECT_NAME, PICTURE_URL, ORDER_CODE,
+        COMMUNICATE_SITUETION, CREATE_TIME, CREATE_PERSON, USER_FEEDBACK, NO_INTENTION_BUY, IS_SECOND_FOLLOW,
+        SECOND_FOLLOW_TIME, UPDATE_TIME, UPDATE_PERSON, FOLLOW_SOURCE, SERVICE_OBJ, RESPONSIBLE_REGION, IS_ADD_QQ,
+        IS_ADD_WX, SOLUTION, REMARK, CHANNELS_PARTNERS, TOUCH_MODE, SERVICE_TYPE_DESCRIBE, NO_INTENTION_BUY_DESCRIBE,
+        USER_FEEDBACK_DESCRIBE, COMMUNICATE_MODE, DEPT_TYPE, DEPT_ID, IS_CALL, IS_ADD_GROUP, CALL_TYPE, REJECT_REASON,
+        IS_WANT_ADD_WX, COMPETITION_EXTRACTION, POINT, IS_LATEST, PRODUCT_BUSINESS_LINE, QUESTION_CLASSIFY,
+        CONTACT_NUMBER, WX_NUMBER, CALL_RESULT, RESPONSIBLE_REGION_CITY, IS_ADD_QV, CONSULT_RESOURCE)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userId}, #{entity.handleId}, #{entity.taskId}, #{entity.enterpriseId}, #{entity.serviceType},
+            #{entity.phoneSituation}, #{entity.marketType}, #{entity.consultType}, #{entity.guaranteeType},
+            #{entity.userQua}, #{entity.processResult}, #{entity.isDeal}, #{entity.noticeType}, #{entity.noticeWay},
+            #{entity.returnVisitType}, #{entity.userReply}, #{entity.auditType}, #{entity.projectName},
+            #{entity.pictureUrl}, #{entity.orderCode}, #{entity.communicateSituetion}, #{entity.createTime},
+            #{entity.createPerson}, #{entity.userFeedback}, #{entity.noIntentionBuy}, #{entity.isSecondFollow},
+            #{entity.secondFollowTime}, #{entity.updateTime}, #{entity.updatePerson}, #{entity.followSource},
+            #{entity.serviceObj}, #{entity.responsibleRegion}, #{entity.isAddQq}, #{entity.isAddWx}, #{entity.solution},
+            #{entity.remark}, #{entity.channelsPartners}, #{entity.touchMode}, #{entity.serviceTypeDescribe},
+            #{entity.noIntentionBuyDescribe}, #{entity.userFeedbackDescribe}, #{entity.communicateMode},
+            #{entity.deptType}, #{entity.deptId}, #{entity.isCall}, #{entity.isAddGroup}, #{entity.callType},
+            #{entity.rejectReason}, #{entity.isWantAddWx}, #{entity.competitionExtraction}, #{entity.point},
+            #{entity.isLatest}, #{entity.productBusinessLine}, #{entity.questionClassify}, #{entity.contactNumber},
+            #{entity.wxNumber}, #{entity.callResult}, #{entity.responsibleRegionCity}, #{entity.isAddQv},
+            #{entity.consultResource})
+        </foreach>
+        on duplicate key update
+        USER_ID = values(USER_ID) , HANDLE_ID = values(HANDLE_ID) , TASK_ID = values(TASK_ID) , ENTERPRISE_ID =
+        values(ENTERPRISE_ID) , SERVICE_TYPE = values(SERVICE_TYPE) , PHONE_SITUATION = values(PHONE_SITUATION) ,
+        MARKET_TYPE = values(MARKET_TYPE) , CONSULT_TYPE = values(CONSULT_TYPE) , GUARANTEE_TYPE =
+        values(GUARANTEE_TYPE) , USER_QUA = values(USER_QUA) , PROCESS_RESULT = values(PROCESS_RESULT) , IS_DEAL =
+        values(IS_DEAL) , NOTICE_TYPE = values(NOTICE_TYPE) , NOTICE_WAY = values(NOTICE_WAY) , RETURN_VISIT_TYPE =
+        values(RETURN_VISIT_TYPE) , USER_REPLY = values(USER_REPLY) , AUDIT_TYPE = values(AUDIT_TYPE) , PROJECT_NAME =
+        values(PROJECT_NAME) , PICTURE_URL = values(PICTURE_URL) , ORDER_CODE = values(ORDER_CODE) ,
+        COMMUNICATE_SITUETION = values(COMMUNICATE_SITUETION) , CREATE_TIME = values(CREATE_TIME) , CREATE_PERSON =
+        values(CREATE_PERSON) , USER_FEEDBACK = values(USER_FEEDBACK) , NO_INTENTION_BUY = values(NO_INTENTION_BUY) ,
+        IS_SECOND_FOLLOW = values(IS_SECOND_FOLLOW) , SECOND_FOLLOW_TIME = values(SECOND_FOLLOW_TIME) , UPDATE_TIME =
+        values(UPDATE_TIME) , UPDATE_PERSON = values(UPDATE_PERSON) , FOLLOW_SOURCE = values(FOLLOW_SOURCE) ,
+        SERVICE_OBJ = values(SERVICE_OBJ) , RESPONSIBLE_REGION = values(RESPONSIBLE_REGION) , IS_ADD_QQ =
+        values(IS_ADD_QQ) , IS_ADD_WX = values(IS_ADD_WX) , SOLUTION = values(SOLUTION) , REMARK = values(REMARK) ,
+        CHANNELS_PARTNERS = values(CHANNELS_PARTNERS) , TOUCH_MODE = values(TOUCH_MODE) , SERVICE_TYPE_DESCRIBE =
+        values(SERVICE_TYPE_DESCRIBE) , NO_INTENTION_BUY_DESCRIBE = values(NO_INTENTION_BUY_DESCRIBE) ,
+        USER_FEEDBACK_DESCRIBE = values(USER_FEEDBACK_DESCRIBE) , COMMUNICATE_MODE = values(COMMUNICATE_MODE) ,
+        DEPT_TYPE = values(DEPT_TYPE) , DEPT_ID = values(DEPT_ID) , IS_CALL = values(IS_CALL) , IS_ADD_GROUP =
+        values(IS_ADD_GROUP) , CALL_TYPE = values(CALL_TYPE) , REJECT_REASON = values(REJECT_REASON) , IS_WANT_ADD_WX =
+        values(IS_WANT_ADD_WX) , COMPETITION_EXTRACTION = values(COMPETITION_EXTRACTION) , POINT = values(POINT) ,
+        IS_LATEST = values(IS_LATEST) , PRODUCT_BUSINESS_LINE = values(PRODUCT_BUSINESS_LINE) , QUESTION_CLASSIFY =
+        values(QUESTION_CLASSIFY) , CONTACT_NUMBER = values(CONTACT_NUMBER) , WX_NUMBER = values(WX_NUMBER) ,
+        CALL_RESULT = values(CALL_RESULT) , RESPONSIBLE_REGION_CITY = values(RESPONSIBLE_REGION_CITY) , IS_ADD_QV =
+        values(IS_ADD_QV) , CONSULT_RESOURCE = values(CONSULT_RESOURCE)
+    </insert>
+
+</mapper>
+
